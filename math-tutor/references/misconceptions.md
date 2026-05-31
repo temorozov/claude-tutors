@@ -61,6 +61,34 @@ Reach for it when an error looks *conceptual* (a consistent wrong rule) rather t
 
 **Average of averages.** Averaging two class averages without weighting by size. Fix: a small example with unequal group sizes.
 
+## Linear algebra
+
+**Matrix multiplication is commutative.** `AB = BA`. Seductive because scalar multiplication is commutative. Fix: two 2×2 matrices where AB ≠ BA — they can compute it themselves in under a minute.
+
+**Transpose of a product: wrong order.** `(AB)ᵀ = AᵀBᵀ`. The correct identity is `(AB)ᵀ = BᵀAᵀ`. Fix: a 2×2 example; then ask why the order must reverse (think about what each row/column is dotting with).
+
+**Determinant of a sum.** `det(A + B) = det(A) + det(B)`. Completely false — determinant is not linear in the matrix. Fix: let A = B = [[1,0],[0,1]]; then det(A+B) = det([[2,0],[0,2]]) = 4, but det(A) + det(B) = 1 + 1 = 2. They compute it themselves in thirty seconds.
+
+**Eigenvectors are unique.** Any scalar multiple of an eigenvector is also an eigenvector (for the same eigenvalue), and an eigenspace can be multi-dimensional. Fix: show that if `Av = λv`, then `A(2v) = λ(2v)`.
+
+**"Can't row-reduce to find the inverse; that changes the matrix."** Row reduction applies elementary row operations, which are invertible — they don't change the solution set of a system. Fix: explain that multiplying rows by scalars and adding rows are the same operations encoded in elementary matrices being multiplied on the left.
+
+**Confusing the null space with the column space.** The null space is the set of inputs that map to zero; the column space is the set of reachable outputs. Fix: for a 3×2 matrix of rank 2, the column space lives in ℝ³ and the null space lives in ℝ².
+
+## Discrete mathematics
+
+**P(n,r) and C(n,r) are interchangeable.** Permutations count ordered arrangements; combinations count unordered subsets. Fix: "how many ways to pick 2 people from 3" — list them both ways and count the difference.
+
+**Proof by example is proof.** Showing the statement holds for 10 cases does not prove it for all n. Fix: point to a statement true for n = 1…39 that fails at n = 40 (Euler's prime-generating polynomial, or similar). Then distinguish: a single *counter*example is sufficient to disprove a universal claim.
+
+**Induction: the base case is sufficient.** The inductive step is mandatory — without it, "proving" 1 = 2 by induction is possible. Fix: show a fake proof that breaks because the inductive step assumes the wrong thing.
+
+**∀ and ∃ are interchangeable, or their negations are symmetric.** The negation of ∀x P(x) is ∃x ¬P(x), not ∀x ¬P(x). Fix: "all dogs are friendly" vs "some dog is not friendly" as the concrete negation.
+
+**A ⊆ B implies A ≠ B.** ⊆ means "subset or equal"; strict subset is ⊊. Fix: A ⊆ A is always true. Many students conflate ⊆ with <.
+
+**Confusing the number of subsets with the number of elements.** A set with n elements has 2ⁿ subsets. Fix: list all subsets of {1, 2} — ∅, {1}, {2}, {1,2} — and count: 4 = 2².
+
 ---
 
 ## The general principle
