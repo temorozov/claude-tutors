@@ -1,37 +1,36 @@
 # claude-tutors
 
-A collection of Claude skills for self-learners. More than just a tutor — Claude will help you build real understanding and teach you how to think.
- 
-## What are skills?
- 
-Skills are instruction files that change how Claude behaves. Install one, and Claude automatically uses it whenever you study that subject — no extra setup per conversation.
- 
-## Available skills
- 
-| Skill | Description |
-|-------|-------------|
-| [`tutor`](./tutor/) | Universal tutor for any subject. Uses a hint ladder instead of handing over answers, teaches the *why* behind every step, and closes with reconstruction ("explain it back without looking") instead of "does that make sense?" Includes a path mode: "I want to learn X" → real goal, starting point, first concrete step. Fallback when no subject specialist is installed. |
-| [`programming-tutor`](./programming-tutor/) | Programming mentor built on the notional machine — the idea that almost every bug is a wrong mental model of execution. Teaches debugging as a scientific method (form a hypothesis, test one thing, narrow), not random trial-and-error. Never hands over working code. Includes a catalog of common execution-model misconceptions (print vs return, aliasing, off-by-one, async). Language-agnostic. |
-| [`math-tutor`](./math-tutor/) | Math tutor that guides your thinking instead of handing over steps. Distinguishes three situations: solving a problem, understanding a concept, checking your solution — and handles each differently. Includes a catalog of common math misconceptions by topic (algebra, calculus, probability, linear algebra) with ready counterexamples. |
- 
-## Why not just "be a professional teacher"?
+Skills that make Claude tutor the way the best human teachers do — guiding you to the answer instead of handing it over, so you actually learn it.
 
-That changes the tone. These skills change the behavior.
+## The problem they solve
 
-- **Modes.** The skill classifies the situation first — stuck on a problem, want a concept explained, checking finished work — and acts differently in each. Wrong read = wrong response.
-- **Hint ladder.** Instead of a polite answer, one nudge per turn: diagnose → check the foundation → surface the strategy (not the move) → a question whose answer is the next step. The learner produces it, not Claude.
-- **No "does that make sense?"** It's a yes/no with social pressure toward yes. Replaced with reconstruction: "without scrolling up, explain the two key moves."
-- **Errors.** Distinguishes a typo (nudge to recheck) from a wrong mental model (engineers a moment where the learner applies their own rule and watches it produce nonsense — self-generated contradiction beats any correction).
+AI tutors have one failure mode: they explain *too* well. A fluent answer feels like understanding — you nod, move on, and can't reproduce it a week later. Research on AI-assisted learning shows measurable skill decline in students who lean on generated answers.
 
-## How to install
+These skills are engineered against exactly that. They make *you* do the thinking, and they're built on established education research — not vibes.
 
-1. Download the skill folder as a ZIP:
-   - Open the skill folder (e.g. [`math-tutor`](./math-tutor/))
-   - Click the green **Code** button → **Download ZIP**
-2. In [claude.ai](https://claude.ai): go to **Settings → Customize → Skills → +** → **Upload a skill**
-3. Upload the ZIP file
-4. That's it — Claude will use it automatically when you study
+## The skills
+
+| Skill | What it is |
+|-------|-----------|
+| [`tutor`](./tutor/) | Universal tutor for any subject. The shared engine below, plus a *path mode* for "I want to learn X." Used as the fallback when no specialist is installed. |
+| [`math-tutor`](./math-tutor/) | Math, algebra through calculus, probability, and linear algebra — with a catalog of the specific misconceptions learners hold at each topic. |
+| [`programming-tutor`](./programming-tutor/) | Programming, language-agnostic. Built on the *notional machine* (most bugs are a wrong model of execution) and teaches debugging as a scientific method, not random trial-and-error. |
+
+## How they actually work
+
+- **A hint ladder, not an answer.** One nudge per turn — diagnose, check the foundation, surface the strategy — and *you* produce the next step. Producing it is what builds the skill; receiving it doesn't.
+- **It reads the situation first.** Stuck on a problem, wanting a concept explained, and checking finished work each demand a *different* response. Giving the wrong one is the most common way tutoring fails.
+- **No "does that make sense?"** — a yes/no question that everyone answers "yes." Replaced with reconstruction and prediction: the only checks a confused learner can't fake with a nod.
+- **A misconception catalog per subject.** Not generic tips — the exact wrong rules learners actually hold, each with a counterexample *you* compute yourself. Believe `(a+b)² = a²+b²`? You work out `(1+1)² = 4 ≠ 2` and watch your own rule break. That sticks; being told you're wrong doesn't.
+
+Grounded in Skemp's relational understanding, du Boulay's notional machine, PRIMM, and cognitive load theory — sources in each skill's `references/`.
+
+## Install
+
+1. Download a skill folder as a ZIP — open it (e.g. [`math-tutor`](./math-tutor/)), click the green **Code** button → **Download ZIP**.
+2. In [claude.ai](https://claude.ai): **Settings → Customize → Skills → +** → **Upload a skill**, then upload the ZIP.
+3. Done — Claude uses it automatically when you study.
+
 ## Contributing
- 
-Have an idea for a skill? Open an issue or submit a pull request.
- 
+
+Have an idea for a skill? Open an issue or a pull request.
